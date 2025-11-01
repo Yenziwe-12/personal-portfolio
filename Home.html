@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yenziwe Zondi Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* 🌸 Colour theme - Soft Blush Pink & White */
+    :root {
+      --accent: #ff91a4; /* Soft blush pink */
+      --accent-dark: #f07487; /* Slightly darker pink for hover */
+      --text-dark: #333333;
+      --text-light: #fefefe;
+      --bg-light: #ffffff;
+      --glass-bg: rgba(255, 255, 255, 0.75); /* Light glassmorphism */
+      --card-bg: rgba(255, 255, 255, 0.85); /* Slightly less transparent card */
+      --shadow-color: rgba(255, 145, 164, 0.4);
+      --radius: 12px;
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    /* Base Styles */
+    body {
+      margin: 0;
+      min-height: 100vh;
+      /* 🌸 Soft gradient background (blush pink + white) */
+      background: linear-gradient(180deg, #ffeef1 0%, #ffffff 100%);
+      color: var(--text-dark);
+      line-height: 1.6;
+      padding-top: 120px;
+      box-sizing: border-box;
+    }
+
+    section {
+        padding: 60px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+        color: var(--accent-dark);
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    /* 💫 Floating Centred Navigation Bar (Existing) */
+    .navbar {
+      position: fixed;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--glass-bg);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 50px;
+      z-index: 1000;
+      padding: 8px 20px;
+      width: auto;
+      max-width: 90%;
+    }
+
+    .nav-list {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-list li a {
+      display: block;
+      color: var(--text-dark);
+      text-align: center;
+      padding: 10px 15px;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 20px;
+      transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    }
+
+    .nav-list li a:hover, .nav-list li a.active {
+      background-color: var(--accent);
+      color: var(--text-light);
+      box-shadow: 0 4px 12px var(--shadow-color);
+    }
+    
+    /* Utility & Button Styles (Existing) */
+    .btn-primary, .btn-secondary {
+        padding: 12px 28px;
+        border: none;
+        border-radius: 30px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--text-light);
+      box-shadow: 0 8px 20px var(--shadow-color);
+    }
+
+    .btn-secondary {
+      background: var(--bg-light);
+      color: var(--accent-dark);
+      border: 2px solid var(--accent);
+    }
+
+    .btn-primary:hover, .btn-secondary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px var(--shadow-color);
+    }
+    .btn-secondary:hover {
+        background-color: var(--accent);
+        color: var(--text-light);
+    }
+    
+    /* 1) Headline & 2) Visual Focus (Hero Section) */
+    .hero-section {
+      text-align: center;
+      max-width: 900px;
+      padding: 40px 20px;
+      margin: 0 auto;
+    }
+
+    .hero-section h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      color: #e84c6c;
+    }
+
+    .hero-section h2 {
+      font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+      color: var(--accent-dark);
+      margin-top: 0;
+      font-weight: 400;
+    }
+
+    .profile-visual {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      margin: 30px auto;
+      background-color: #f7d1d8;
+      border: 4px solid var(--accent);
+      box-shadow: 0 0 30px var(--shadow-color);
+      overflow: hidden;
+    }
+    
+    .profile-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cta-buttons {
+      margin-top: 30px;
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    /* 3) Benefits Section */
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .benefit-card {
+        background: var(--card-bg);
+        padding: 30px;
+        border-radius: var(--radius);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .benefit-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .benefit-card h4 {
+        color: var(--accent-dark);
+        margin-top: 0;
+        font-size: 1.25rem;
+    }
+
+    /* 4) Social Proof Section */
+    .social-proof {
+        background: var(--accent);
+        color: var(--text-light);
+        text-align: center;
+        border-radius: var(--radius);
+        padding: 50px;
+        box-shadow: 0 10px 30px var(--shadow-color);
+    }
+    
+    .social-proof blockquote {
+        font-size: 1.5rem;
+        font-style: italic;
+        margin: 0 auto 15px;
+        max-width: 800px;
+        line-height: 1.4;
+    }
+
+    .social-proof footer {
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* 5) Storytelling Section */
+    .story-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+    }
+
+    .story-image {
+        background-color: #f7d1d8;
+        min-height: 300px;
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--accent);
+    }
+    
+    .story-content h4 {
+        text-align: left;
+        color: var(--text-dark);
+    }
+
+    /* 6) Guarantee Section */
+    .guarantee {
+        text-align: center;
+        background: #fdf6f7; /* Very light pink background */
+        border-radius: var(--radius);
+        padding: 40px;
+        border: 2px dashed var(--accent);
+    }
+
+    .guarantee p {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: var(--text-dark);
+    }
+
+    /* 7) Final Call to Action Section */
+    .final-cta {
+        text-align: center;
+    }
+
+    .cta-final-buttons {
+        margin-top: 30px;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      .story-layout {
+        grid-template-columns: 1fr;
+      }
+      .story-image {
+        order: -1;
+      }
+      .social-proof blockquote {
+        font-size: 1.2rem;
+      }
+      .social-proof {
+        padding: 40px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar" aria-label="Main navigation">
+    <ul class="nav-list">
+      <li><a href="#hero" class="active">Home</a></li>
+      <li><a href="#benefits">Features</a></li>
+      <li><a href="#story">About</a></li>
+      <li><a href="#contact-us">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="hero-section" id="hero">
+        <div class="profile-visual">
+            <img src="Media/Screenshot 2025-10-26 180314.png" alt="Yenziwe Zondi Profile Image">
+        </div>
+        
+        <h1>Yenziwe Zondi, Freelance Developer.</h1>
+        <h2>Blending **Clean Code** with **Elegant UI** to bring your vision to life.</h2>
+        <p>I create beautiful, efficient web and mobile applications, focused on functional creativity and empowering users through seamless digital experiences.</p>
+
+        <div class="cta-buttons">
+            <a class="btn-primary" href="Aboutme.html">See My Work ✨</a>
+            <a class="btn-secondary" href="#cv-link">View My CV</a>
+        </div>
+    </section>
+
+    <section id="benefits">
+        <h3>Why Work with Me?</h3>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <h4>✨ Elegant UI/UX</h4>
+                <p>Applications that don't just work, but look fantastic. Design-first approach ensures user delight.</p>
+            </div>
+            <div class="benefit-card">
+                <h4>🚀 Performance & Speed</h4>
+                <p>Optimized for fast loading and smooth user interaction, using modern, efficient frameworks.</p>
+            </div>
+            <div class="benefit-card">
+                <h4>📱 Mobile-First Development</h4>
+                <p>Every project is built to be perfectly responsive and fully functional on any device, right from the start.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="social-proof">
+            <blockquote>"Yenziwe's work transformed our concept into a sleek, professional product. Her attention to detail and clear communication were outstanding."</blockquote>
+            <footer>— Fictional Client Name, CEO of InnovateTech</footer>
+        </div>
+    </section>
+
+    <section id="story">
+        <h3>My Journey: Crafting Code and Narrative</h3>
+        <div class="story-layout">
+            <div class="story-content">
+                <p>My passion lies in the intersection of logic and beauty. Starting my studies in IT, I quickly realised that writing code is like telling a story—it needs a clear beginning, a logical structure, and an engaging conclusion.</p>
+                <p>I approach development by first understanding the human experience. Whether it’s React, TypeScript, or pure CSS, I aim for a solution that’s not just technically sound, but emotionally intuitive for the user.</p>
+                <p>Let's build a product with a compelling narrative.</p>
+            </div>
+            <div class="story-image">
+                </div>
+        </div>
+    </section>
+    
+    <section>
+        <div class="guarantee">
+            <h3>🤝 My Code Promise</h3>
+            <p>I guarantee a **30-day bug-fix policy** after project launch. If any functionality I developed breaks within the first month, I'll fix it at no extra cost. Your success is my commitment.</p>
+        </div>
+    </section>
+
+    <section class="final-cta" id="contact-us">
+        <h3>Ready to Start Your Project?</h3>
+        <p>Don't wait to turn your idea into a stunning digital reality. Get in touch today for a free consultation and project quote.</p>
+        
+        <div class="cta-final-buttons">
+            <a class="btn-primary" href="Contact.html">Start a Conversation Today 💬</a>
+            <a class="btn-secondary" href="Aboutme.html">View My Full Portfolio</a>
+        </div>
+    </section>
+  </main>
+
+  <footer>
+      </footer>
+</body>
+</html>

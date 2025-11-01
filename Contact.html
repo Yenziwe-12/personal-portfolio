@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Yenziwe Zondi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* 🌸 Colour theme - Inherited from Home Page */
+    :root {
+      --accent: #ff91a4; /* Soft blush pink */
+      --accent-dark: #f07487;
+      --text-dark: #333333;
+      --text-light: #fefefe;
+      --bg-light: #ffffff;
+      --glass-bg: rgba(255, 255, 255, 0.75);
+      --card-bg: rgba(255, 255, 255, 0.95);
+      --shadow-color: rgba(255, 145, 164, 0.4);
+      --radius: 12px;
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    /* Base Styles */
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(180deg, #ffeef1 0%, #ffffff 100%);
+      color: var(--text-dark);
+      line-height: 1.6;
+      padding-top: 120px; 
+      box-sizing: border-box;
+    }
+
+    main {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
+
+    h1 {
+        font-size: 3rem;
+        color: var(--accent-dark);
+        text-align: center;
+        margin-bottom: 5px;
+        font-weight: 700;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+        color: var(--text-dark);
+        margin-top: 40px;
+        padding-bottom: 5px;
+        border-bottom: 2px solid var(--accent);
+    }
+
+    .subtitle {
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 1.1rem;
+        color: #666;
+    }
+
+    /* Floating Navigation Bar (Copied for consistency) */
+    .navbar {
+      position: fixed;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--glass-bg);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 50px;
+      z-index: 1000;
+      padding: 8px 20px;
+      width: auto;
+      max-width: 90%;
+    }
+
+    .nav-list {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-list li a {
+      display: block;
+      color: var(--text-dark);
+      text-align: center;
+      padding: 10px 15px;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 20px;
+      transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    }
+
+    .nav-list li a:hover, .nav-list li a.active {
+      background-color: var(--accent);
+      color: var(--text-light);
+      box-shadow: 0 4px 12px var(--shadow-color);
+    }
+    
+    /* Contact Form Styling */
+    .contact-container {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 40px;
+        background: var(--card-bg);
+        padding: 40px;
+        border-radius: var(--radius);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: var(--accent-dark);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-sizing: border-box;
+        font-size: 1rem;
+        transition: border-color 0.3s, box-shadow 0.3s;
+        background-color: #f9f9f9;
+    }
+
+    input:focus,
+    textarea:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(255, 145, 164, 0.2);
+        outline: none;
+        background-color: var(--bg-light);
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 150px;
+    }
+
+    .submit-btn {
+      padding: 12px 28px;
+      border: none;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      text-decoration: none;
+      background: var(--accent);
+      color: var(--text-light);
+      box-shadow: 0 8px 20px var(--shadow-color);
+      width: 100%;
+    }
+
+    .submit-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px var(--shadow-color);
+    }
+    
+    /* Info Panel */
+    .info-panel {
+        background: #fdf6f7; /* Very light pink background */
+        padding: 30px;
+        border-radius: var(--radius);
+        align-self: start;
+    }
+    
+    .info-panel h3 {
+        color: var(--accent-dark);
+        margin-top: 0;
+        font-size: 1.5rem;
+        border-bottom: 2px solid var(--accent);
+        padding-bottom: 10px;
+        text-align: left;
+    }
+
+    .contact-detail {
+        margin-bottom: 20px;
+    }
+    
+    .contact-detail strong {
+        display: block;
+        color: var(--text-dark);
+        margin-bottom: 5px;
+    }
+    
+    .contact-detail a {
+        color: var(--accent-dark);
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    
+    .contact-detail a:hover {
+        color: var(--accent);
+        text-decoration: underline;
+    }
+    
+    /* Social Links */
+    .social-links {
+        margin-top: 30px;
+        border-top: 1px solid #ddd;
+        padding-top: 20px;
+    }
+
+    .social-links a {
+        display: inline-block;
+        margin-right: 15px;
+        font-size: 20px;
+        color: var(--accent-dark);
+        transition: transform 0.3s, color 0.3s;
+    }
+    
+    .social-links a:hover {
+        transform: scale(1.1);
+        color: var(--accent);
+    }
+
+
+    @media (max-width: 768px) {
+        .contact-container {
+            grid-template-columns: 1fr;
+        }
+        .info-panel {
+            order: -1; /* Move info panel above the form on mobile */
+        }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar" aria-label="Main navigation">
+    <ul class="nav-list">
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="Aboutme.html">About Me</a></li>
+      <li><a href="Contact.html" class="active">Contact Me</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Let's Connect & Create</h1>
+    <div class="subtitle">Tell me about your project, your needs, or just say hello! I look forward to hearing from you.</div>
+
+    <div class="contact-container">
+        
+        <section class="contact-form">
+            <h2>Send Me a Message</h2>
+            <form action="#" method="POST"> 
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject / Project Idea</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message Details</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </section>
+
+        <aside class="info-panel">
+            <h3>Direct Contact Info</h3>
+            
+            <div class="contact-detail">
+                <strong>Email Address</strong>
+                <a href="mailto:your.email@example.com">your.email@example.com</a>
+            </div>
+            
+            <div class="contact-detail">
+                <strong>Location</strong>
+                <p>South Africa (Available for remote global work)</p>
+            </div>
+            
+            <div class="contact-detail">
+                <strong>Response Time</strong>
+                <p>I typically respond within 1-2 business days.</p>
+            </div>
+
+            <div class="social-links">
+                <h3>Find Me Online</h3>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">💼</a> 
+                <a href="https://github.com/yourprofile" target="_blank" aria-label="GitHub">💻</a>
+                <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter">🐦</a>
+            </div>
+        </aside>
+    </div>
+  </main>
+</body>
+</html>
